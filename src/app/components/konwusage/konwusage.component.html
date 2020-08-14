@@ -1,0 +1,81 @@
+
+<br/><br/>
+
+<h1 style="text-align: center;">Fill Form</h1>
+
+<div class="form">
+
+    <div class="example-container">
+        <mat-form-field appearance="fill">
+            <mat-label>Enter your surname</mat-label>
+            <input matInput  [formControl]="surname"  required>
+            <mat-error *ngIf="surname.invalid">{{getSurnameErrorMessage()}}</mat-error>
+          </mat-form-field>
+    </div>
+    <div class="example-container">
+        <mat-form-field appearance="fill">
+          <mat-label>Enter your email</mat-label>
+          <input matInput placeholder="16012286@stu.mmu.ac.uk" [formControl]="email" [pattern]="emailPattern" required>
+          <mat-error *ngIf="email.invalid">{{getEmailErrorMessage()}}</mat-error>
+        </mat-form-field>
+    </div>
+    <div class="example-container">
+        <mat-form-field appearance="fill">
+            <mat-label>Enter your phone number</mat-label>
+            <input matInput  [formControl]="phone" type="number" required>
+            <mat-error *ngIf="phone.invalid">{{getPhoneErrorMessage()}}</mat-error>
+        </mat-form-field>
+    </div>
+    <div class="example-container">
+        <mat-form-field appearance="fill">
+            <mat-label>Enter your address</mat-label>
+            <input matInput  [formControl]="address"  required>
+            <mat-error *ngIf="address.invalid">{{getAddressErrorMessage()}}</mat-error>
+        </mat-form-field>
+    </div>
+    <div class="example-container">
+        <mat-form-field appearance="fill">
+            <mat-label>Estimated gas usage per year</mat-label>
+            <input matInput  [formControl]="gasusage" type="number" required>
+            <mat-error *ngIf="gasusage.invalid">{{getGasUsageErrorMessage()}}</mat-error>
+        </mat-form-field>
+    </div>
+    <div class="example-container">
+        <label id="example-radio-group-label">Features for you</label> <br/><br/>
+        <mat-checkbox [(ngModel)]="directDebit">Direct Debit</mat-checkbox>
+        <mat-checkbox [(ngModel)]="onlineAccount">Online Account</mat-checkbox>
+        <mat-checkbox [(ngModel)]="paperlessBilling">Paperless Billing</mat-checkbox>
+    </div>
+    <div class="example-container">
+        <button mat-raised-button color="warn" (click)="OnClear()">Clear</button>
+        <button mat-raised-button color="primary" (click)="onSubmit()">Submit</button>
+    </div>
+
+    <div class="example-container">
+        <div *ngIf="isSubmitted" class="result">
+            <h3 style="color: green;">{{bestcompany}} is the best suited gas company for you</h3>
+            <table id="companies">
+                <thead>
+                    <th>Company</th>
+                    <th>Standing Gas</th>
+                    <th>Per Unit Gas</th>
+                    <th>Online</th>
+                    <th>Direct Debit</th>
+                    <th>Paperless Billing</th>
+                    <th>Estimated Price</th>
+                </thead>
+                <tbody *ngFor="let company of sortedCompanies">
+                        <tr>
+                            <td>{{company.name}}</td>
+                            <td>{{company.standing_gas}}</td>
+                            <td>{{company.per_unit_gas}}</td>
+                            <td> - $ {{company.online}}</td>
+                            <td> - $ {{company.direct_debit}}</td>
+                            <td>  {{company.paperless_billing == null ? '-' : '-$' + company.paperless_billing }}</td>
+                            <td> - $ {{company.total_gas}}</td>
+                        </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

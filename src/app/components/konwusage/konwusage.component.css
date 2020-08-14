@@ -1,0 +1,57 @@
+.example-card {
+    max-width: 1000px;
+  }
+
+  .example-container .mat-form-field + .mat-form-field {
+    margin-left: 8px;
+  }
+
+  .form {
+    width: 100%;
+    text-align: center;
+  }
+
+  .result {
+    width: 100%;
+    text-align: center;
+  }
+
+  mat-form-field {
+      width: 80%;
+      margin-left: 10%;
+      margin-right: 10%;
+  }
+
+  mat-checkbox {
+      margin: 10px;
+  }
+
+  button {
+    margin: 20px;
+  }
+
+  #companies {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 80%;
+    text-align: center;
+    margin-left: 10%;
+    margin-right: 10%;
+  }
+  
+  #companies td, #companies th {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  
+  #companies tr:nth-child(even){background-color: #f2f2f2;}
+  
+  #companies tr:hover {background-color: #ddd;}
+  
+  #companies th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #4CAF50;
+    color: white;
+  }
